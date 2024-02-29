@@ -101,13 +101,13 @@ void pint_push(binary_tree_t *node, levelorder_queue_t *head,
  */
 void free_queue(levelorder_queue_t *head)
 {
-	levelorder_queue_t *tmp;
+	levelorder_queue_t *temp;
 
 	while (head != NULL)
 	{
-		tmp = head->next;
+		temp = head->next;
 		free(head);
-		head = tmp;
+		head = temp;
 	}
 }
 
@@ -118,9 +118,9 @@ void free_queue(levelorder_queue_t *head)
  */
 void pop(levelorder_queue_t **head)
 {
-	levelorder_queue_t *tmp;
+	levelorder_queue_t *temp;
 
-	tmp = (*head)->next;
+	temp = (*head)->next;
 	free(*head);
-	*head = tmp;
+	*head = temp;
 }
