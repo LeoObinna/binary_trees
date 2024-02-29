@@ -30,7 +30,7 @@ avl_t *avl_remove(avl_t *root, int value)
  * bst_remove - Remove a node from a BST tree.
  *
  * @root: Root of the tree.
- * @value: Node with this value to remove.
+ * @value: The node with this value to remove.
  *
  * Return: The tree changed
  */
@@ -58,7 +58,7 @@ bst_t *bst_remove(bst_t *root, int value)
 /**
  * remove_type - Function that removes a node depending of its children.
  *
- * @root: Node to remove.
+ * @root: The node to remove.
  *
  * Return: 0 if it has no children or other value if it has
  */
@@ -107,7 +107,7 @@ int remove_type(bst_t *root)
 /**
  * successor - Get the next successor i mean the min node in the right subtree.
  *
- * @node: Tree to check.
+ * @node: The tree to check.
  *
  * Return: The min value of this tree.
  */
@@ -133,7 +133,7 @@ int successor(bst_t *node)
 /**
  * bal - Measures balance factor of a AVL.
  *
- * @tree: Tree to go through.
+ * @tree: The tree to go through.
  *
  * Return: Balanced factor.
  */
