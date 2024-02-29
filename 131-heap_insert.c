@@ -29,6 +29,15 @@ heap_t *heap_insert(heap_t **root, int value)
 		leaves -= sub;
 	for (bit = 1 << (level - 1); bit != 1; bit >>= 1)
 		tree = leaves & bit ? tree->right : tree->left;
+	/*
+	 * Traverse tree to first empty slot based on the binary
+	 * representation of the number of leaves.
+	 * Example -
+	 * If there are 12 nodes in a complete tree, there are 5 leaves on
+	 * the 4th tier of the tree. 5 is 101 in binary. 1 corresponds to
+	 * right, 0 to left.
+	 * The first empty node is 101 == RLR, *root->right->left->right
+	 */
 
 	new = binary_tree_node(tree, value);
 	leaves & 1 ? (tree->right = new) : (tree->left = new);
@@ -41,6 +50,7 @@ heap_t *heap_insert(heap_t **root, int value)
 		flip->parent->n = temp;
 		new = new->parent;
 	}
+	/* Flip values with parent until parent value exceeds new value */
 
 	return (new);
 }
